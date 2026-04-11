@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scan Resi - ShopeeTools</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- QR Scanner Library -->
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+      color: #e5e7eb;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Animated background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .main-container {
+      position: relative;
+      z-index: 1;
+      padding: 1rem;
+    }
+
+    /* Navbar */
+    .navbar-custom {
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 1rem 1.5rem;
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      color: #fff !important;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .back-btn {
+      color: #94a3b8;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s;
+    }
+
+    .back-btn:hover {
+      color: #fff;
+    }
+
+    /* Scanner Container */
+    .scanner-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .scanner-card {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+
+    .scanner-header {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+      padding: 2rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .scanner-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 2.5rem;
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3); }
+      50% { transform: scale(1.05); box-shadow: 0 15px 40px rgba(59, 130, 246, 0.5); }
+    }
+
+    .scanner-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .scanner-subtitle {
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    /* Camera Section */
+    .camera-section {
+      padding: 2rem;
+    }
+
+    #reader {
+      width: 100% !important;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid rgba(59, 130, 246, 0.3);
+    }
+
+    #reader video {
+      border-radius: 16px;
+    }
+
+    /* Custom QR Scanner UI */
+    #reader__dashboard_section_csr span {
+      color: #fff !important;
+    }
+
+    #reader__camera_selection {
+      background: #0f172a !important;
+      color: #fff !important;
+      border: 1px solid rgba(255,255,255,0.1) !important;
+      border-radius: 8px !important;
+      padding: 0.5rem !important;
+    }
+
+    #reader__dashboard_section_swaplink {
+      color: #3b82f6 !important;
+      text-decoration: none !important;
+    }
+
+    /* Manual Input Section */
+    .manual-section {
+      padding: 0 2rem 2rem;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+      color: #64748b;
+      font-size: 0.875rem;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .input-group-custom {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .search-input {
+      flex: 1;
+      background: rgba(15, 23, 42, 0.6);
+      border: 2px solid rgba(51, 65, 85, 0.5);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      color: #fff;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      background: rgba(15, 23, 42, 0.8);
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+    }
+
+    .search-input::placeholder {
+      color: #64748b;
+    }
+
+    .btn-scan {
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      border: none;
+      border-radius: 12px;
+      padding: 0 1.5rem;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-scan:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+    }
+
+    /* Result Section */
+    .result-section {
+      padding: 0 2rem 2rem;
+      display: none;
+    }
+
+    .result-section.show {
+      display: block;
+      animation: slideUp 0.5s ease;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Found Result */
+    .result-found {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .result-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .result-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(34, 197, 94, 0.2);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #22c55e;
+      font-size: 1.75rem;
+    }
+
+    .result-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #22c55e;
+      margin: 0;
+    }
+
+    .result-subtitle {
+      color: #94a3b8;
+      font-size: 0.875rem;
+      margin: 0;
+    }
+
+    /* Data Card in Result */
+    .data-detail {
+      background: rgba(15, 23, 42, 0.5);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .data-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .data-row:last-child {
+      border-bottom: none;
+    }
+
+    .data-label-small {
+      color: #64748b;
+      font-size: 0.875rem;
+    }
+
+    .data-value-large {
+      color: #fff;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-align: right;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .status-success {
+      background: rgba(34, 197, 94, 0.15);
+      color: #22c55e;
+    }
+
+    .status-pending {
+      background: rgba(245, 158, 11, 0.15);
+      color: #f59e0b;
+    }
+
+    .status-dikirim {
+      background: rgba(59, 130, 246, 0.15);
+      color: #3b82f6;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .btn-action-group {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn-track-result {
+      flex: 1;
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      border: none;
+      border-radius: 12px;
+      padding: 1rem;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-track-result:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+      color: #fff;
+    }
+
+    .btn-new-scan {
+      flex: 1;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 1rem;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-new-scan:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* Not Found Result */
+    .result-not-found {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .not-found-icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(239, 68, 68, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: #ef4444;
+      font-size: 2.5rem;
+    }
+
+    .not-found-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #ef4444;
+      margin-bottom: 0.5rem;
+    }
+
+    .not-found-text {
+      color: #94a3b8;
+      margin-bottom: 1.5rem;
+    }
+
+    .scanned-code {
+      background: rgba(239, 68, 68, 0.1);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-family: monospace;
+      color: #fca5a5;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      word-break: break-all;
+    }
+
+    /* Loading State */
+    .loading-state {
+      text-align: center;
+      padding: 3rem;
+    }
+
+    .spinner-custom {
+      width: 60px;
+      height: 60px;
+      border: 4px solid rgba(59, 130, 246, 0.2);
+      border-top-color: #3b82f6;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1.5rem;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading-text {
+      color: #94a3b8;
+      font-size: 1rem;
+    }
+
+    /* Scan Line Animation */
+    .scan-overlay {
+      position: relative;
+    }
+
+    .scan-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+      animation: scan 2s linear infinite;
+      box-shadow: 0 0 10px #3b82f6;
+    }
+
+    @keyframes scan {
+      0% { top: 0; }
+      100% { top: 100%; }
+    }
+
+    /* Recent Scans */
+    .recent-section {
+      padding: 0 2rem 2rem;
+    }
+
+    .recent-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .recent-item {
+      background: rgba(15, 23, 42, 0.5);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .recent-item:hover {
+      background: rgba(15, 23, 42, 0.8);
+      transform: translateX(5px);
+    }
+
+    .recent-code {
+      font-family: monospace;
+      color: #cbd5f5;
+      font-size: 0.95rem;
+    }
+
+    .recent-time {
+      color: #64748b;
+      font-size: 0.875rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 576px) {
+      .scanner-header {
+        padding: 1.5rem;
+      }
+
+      .scanner-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+      }
+
+      .scanner-title {
+        font-size: 1.5rem;
+      }
+
+      .camera-section,
+      .manual-section,
+      .result-section,
+      .recent-section {
+        padding: 1.5rem;
+      }
+
+      .input-group-custom {
+        flex-direction: column;
+      }
+
+      .btn-scan {
+        padding: 1rem;
+        justify-content: center;
+      }
+
+      .btn-action-group {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-custom">
+    <div class="container-fluid">
+      <a href="index.html" class="back-btn">
+        <i class="bi bi-arrow-left"></i>
+        <span>Kembali</span>
+      </a>
+      <a class="navbar-brand ms-auto" href="#">
+        <i class="bi bi-upc-scan"></i>
+        ShopeeTools
+      </a>
+    </div>
+  </nav>
+
+  <div class="main-container">
+    <div class="scanner-wrapper">
+      
+      <div class="scanner-card">
+        
+        <!-- Header -->
+        <div class="scanner-header">
+          <div class="scanner-icon">
+            <i class="bi bi-qr-code-scan"></i>
+          </div>
+          <h1 class="scanner-title">Scan Resi</h1>
+          <p class="scanner-subtitle">Arahkan kamera ke barcode atau QR code resi</p>
+        </div>
+
+        <!-- Camera Scanner -->
+        <div class="camera-section">
+          <div class="scan-overlay">
+            <div id="reader"></div>
+            <div class="scan-line" id="scanLine" style="display: none;"></div>
+          </div>
+          
+          <!-- Camera Controls -->
+          <div class="text-center mt-3">
+            <button class="btn-new-scan" onclick="toggleCamera()" id="cameraToggle">
+              <i class="bi bi-camera-video"></i>
+              <span id="cameraText">Mulai Kamera</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Manual Input -->
+        <div class="manual-section">
+          <div class="divider">atau masukkan manual</div>
+          
+          <div class="input-group-custom">
+            <input 
+              type="text" 
+              class="search-input" 
+              id="manualInput" 
+              placeholder="Masukkan no resi / no pesanan..."
+              onkeypress="if(event.key==='Enter')searchManual()"
+            >
+            <button class="btn-scan" onclick="searchManual()">
+              <i class="bi bi-search"></i>
+              <span class="d-none d-sm-inline">Cari</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Loading State -->
+        <div class="result-section" id="loadingSection">
+          <div class="loading-state">
+            <div class="spinner-custom"></div>
+            <p class="loading-text">Mencari data...</p>
+          </div>
+        </div>
+
+        <!-- Result Not Found -->
+        <div class="result-section" id="resultNotFound">
+          <div class="result-not-found">
+            <div class="not-found-icon">
+              <i class="bi bi-x-lg"></i>
+            </div>
+            <h3 class="not-found-title">Data Tidak Ditemukan</h3>
+            <p class="not-found-text">Kode yang discan tidak terdaftar dalam database</p>
+            
+            <div class="scanned-code" id="scannedCodeDisplay">-</div>
+            
+            <button class="btn-new-scan w-100" onclick="resetScanner()">
+              <i class="bi bi-arrow-clockwise"></i>
+              Scan Ulang
+            </button>
+          </div>
+        </div>
+
+        <!-- Recent Scans -->
+        <div class="recent-section" id="recentSection">
+          <h4 class="recent-title">
+            <i class="bi bi-clock-history"></i>
+            Scan Terbaru
+          </h4>
+          <div id="recentList"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+        <!-- Result Found -->
+        <div class="result-section" id="resultFound">
+          <div class="result-found">
+            <div class="result-header">
+              <div class="result-icon">
+                <i class="bi bi-check-lg"></i>
+              </div>
+              <div>
+                <h3 class="result-title">Data Ditemukan!</h3>
+                <p class="result-subtitle">Pesanan ditemukan dalam database</p>
+              </div>
+            </div>
+
+            <div class="data-detail">
+              <div class="data-row">
+                <span class="data-label-small">Nama Produk</span>
+                <span class="data-value-large" id="foundNama">-</span>
+              </div>
+              <div class="data-row">
+                <span class="data-label-small">Harga</span>
+                <span class="data-value-large text-success" id="foundHarga">-</span>
+              </div>
+              <div class="data-row">
+                <span class="data-label-small">No Resi</span>
+                <span class="data-value-large font-monospace" id="foundResi">-</span>
+              </div>
+              <div class="data-row">
+                <span class="data-label-small">No Pesanan</span>
+                <span class="data-value-large font-monospace" id="foundPesanan">-</span>
+              </div>
+              <div class="data-row">
+                <span class="data-label-small">Status</span>
+                <span id="foundStatus">-</span>
+              </div>
+              <div class="data-row">
+                <span class="data-label-small">Tanggal Pesan</span>
+                <span class="data-value-large" id="foundTanggal">-</span>
+              </div>
+            </div>
+
+            <div class="btn-action-group">
+              <a href="#" class="btn-track-result" id="trackLink" target="_blank">
+                <i class="bi bi-truck"></i>
+                Lacak Pengiriman
+              </a>
+              <button class="btn-new-scan" onclick="resetScanner()">
+                <i class="bi bi-arrow-clockwise"></i>
+                Scan Lagi
+              </button>
+            </div>
+          </div>
+        </div>
+  <script>
+    const url = "https://hams-71af2-default-rtdb.firebaseio.com/data/paket.json";
+    let html5QrCode;
+    let isScanning = false;
+    let allData = {};
+
+    // Load data from Firebase on start
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        allData = data || {};
+      })
+      .catch(err => console.error("Error loading data:", err));
+
+    // Initialize QR Scanner
+    function initScanner() {
+      html5QrCode = new Html5Qrcode("reader");
+    }
+
+    function toggleCamera() {
+      if (!html5QrCode) {
+        initScanner();
+      }
+
+      if (isScanning) {
+        stopCamera();
+      } else {
+        startCamera();
+      }
+    }
+
+    function startCamera() {
+      const config = { 
+        fps: 10, 
+        qrbox: { width: 250, height: 250 },
+        aspectRatio: 1.0
+      };
+
+      html5QrCode.start(
+        { facingMode: "environment" },
+        config,
+        onScanSuccess,
+        onScanFailure
+      )
+      .then(() => {
+        isScanning = true;
+        document.getElementById('cameraToggle').innerHTML = '<i class="bi bi-stop-circle"></i><span>Stop Kamera</span>';
+        document.getElementById('scanLine').style.display = 'block';
+      })
+      .catch(err => {
+        console.error("Error starting camera:", err);
+        alert("Tidak dapat mengakses kamera. Pastikan izin kamera diizinkan.");
+      });
+    }
+
+    function stopCamera() {
+      if (html5QrCode && isScanning) {
+        html5QrCode.stop().then(() => {
+          isScanning = false;
+          document.getElementById('cameraToggle').innerHTML = '<i class="bi bi-camera-video"></i><span>Mulai Kamera</span>';
+          document.getElementById('scanLine').style.display = 'none';
+        });
+      }
+    }
+
+    function onScanSuccess(decodedText, decodedResult) {
+      // Stop camera after successful scan
+      stopCamera();
+      
+      // Process the scanned code
+      processSearch(decodedText);
+      
+      // Add to recent scans
+      addToRecent(decodedText);
+    }
+
+    function onScanFailure(error) {
+      // console.warn(`Code scan error = ${error}`);
+    }
+
+    function searchManual() {
+      const input = document.getElementById('manualInput').value.trim();
+      if (!input) {
+        alert("Masukkan no resi atau no pesanan");
+        return;
+      }
+      processSearch(input);
+      addToRecent(input);
+    }
+
+    function processSearch(searchCode) {
+      // Show loading
+      hideAllResults();
+      document.getElementById('loadingSection').classList.add('show');
+
+      // Simulate network delay for better UX
+      setTimeout(() => {
+        searchInDatabase(searchCode);
+      }, 800);
+    }
+
+    function searchInDatabase(searchCode) {
+      document.getElementById('loadingSection').classList.remove('show');
+
+      if (!allData || Object.keys(allData).length === 0) {
+        showNotFound(searchCode);
+        return;
+      }
+
+      // Search in all data
+      let foundItem = null;
+      let foundKey = null;
+
+      for (const [key, item] of Object.entries(allData)) {
+        if (
+          (item.no_res && item.no_res.toLowerCase() === searchCode.toLowerCase()) ||
+          (item.no_pesanan && item.no_pesanan.toLowerCase() === searchCode.toLowerCase())
+        ) {
+          foundItem = item;
+          foundKey = key;
+          break;
+        }
+      }
+
+      if (foundItem) {
+        showFound(foundItem, searchCode);
+      } else {
+        showNotFound(searchCode);
+      }
+    }
+
+    function showFound(item, searchCode) {
+      document.getElementById('foundNama').textContent = item.nama_data || '-';
+      document.getElementById('foundHarga').textContent = formatRupiah(item.harga_data);
+      document.getElementById('foundResi').textContent = item.no_res || '-';
+      document.getElementById('foundPesanan').textContent = item.no_pesanan || '-';
+      document.getElementById('foundTanggal').textContent = formatTanggal(item.tanggal_pesan);
+
+      // Status badge
+      const statusClass = getStatusClass(item.status_pesanan);
+      const statusHtml = `
+        <span class="status-badge ${statusClass}">
+          <span class="status-dot"></span>
+          ${item.status_pesanan || '-'}
+        </span>
+      `;
+      document.getElementById('foundStatus').innerHTML = statusHtml;
+
+      // Track link
+      const trackLink = document.getElementById('trackLink');
+      if (item.no_res) {
+        trackLink.href = `https://spx.co.id/m/track?${item.no_res}`;
+        trackLink.style.display = 'flex';
+      } else {
+        trackLink.style.display = 'none';
+      }
+
+      document.getElementById('resultFound').classList.add('show');
+    }
+
+    function showNotFound(searchCode) {
+      document.getElementById('scannedCodeDisplay').textContent = searchCode;
+      document.getElementById('resultNotFound').classList.add('show');
+    }
+
+    function hideAllResults() {
+      document.getElementById('loadingSection').classList.remove('show');
+      document.getElementById('resultFound').classList.remove('show');
+      document.getElementById('resultNotFound').classList.remove('show');
+    }
+
+    function resetScanner() {
+      hideAllResults();
+      document.getElementById('manualInput').value = '';
+      
+      // Restart camera if it was active
+      if (isScanning) {
+        stopCamera();
+        setTimeout(startCamera, 500);
+      }
+    }
+
+    function addToRecent(code) {
+      let recent = JSON.parse(localStorage.getItem('recentScans') || '[]');
+      
+      // Remove if exists
+      recent = recent.filter(item => item.code !== code);
+      
+      // Add to beginning
+      recent.unshift({
+        code: code,
+        time: new Date().toISOString()
+      });
+      
+      // Keep only last 5
+      recent = recent.slice(0, 5);
+      
+      localStorage.setItem('recentScans', JSON.stringify(recent));
+      renderRecent();
+    }
+
+    function renderRecent() {
+      const recent = JSON.parse(localStorage.getItem('recentScans') || '[]');
+      const container = document.getElementById('recentList');
+      
+      if (recent.length === 0) {
+        document.getElementById('recentSection').style.display = 'none';
+        return;
+      }
+
+      document.getElementById('recentSection').style.display = 'block';
+      
+      container.innerHTML = recent.map(item => {
+        const time = new Date(item.time).toLocaleTimeString('id-ID', {
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+        
+        return `
+          <div class="recent-item" onclick="processSearch('${item.code}')">
+            <span class="recent-code">${item.code}</span>
+            <span class="recent-time">${time}</span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function formatRupiah(angka) {
+      if (!angka) return "Rp 0";
+      return "Rp " + Number(angka).toLocaleString("id-ID");
+    }
+
+    function formatTanggal(tanggal) {
+      if (!tanggal) return "-";
+      const d = new Date(tanggal);
+      if (isNaN(d.getTime())) return tanggal;
+      return d.toLocaleDateString("id-ID", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+      });
+    }
+
+    function getStatusClass(status) {
+      const statusLower = (status || "").toLowerCase();
+      if (statusLower === "selesai") return "status-success";
+      if (statusLower === "dikirim") return "status-dikirim";
+      if (statusLower === "pending") return "status-pending";
+      return "status-pending";
+    }
+
+    // Load recent on start
+    renderRecent();
+
+    // Refresh data periodically
+    setInterval(() => {
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          allData = data || {};
+        });
+    }, 30000); // Refresh every 30 seconds
+  </script>
+
+</body>
+</html>

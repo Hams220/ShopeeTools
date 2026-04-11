@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Input Data</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+      color: #e5e7eb;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Animated background particles */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(34, 197, 94, 0.1) 0%, transparent 40%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .main-container {
+      position: relative;
+      z-index: 1;
+      padding: 2rem 1rem;
+    }
+
+    /* Glassmorphism Card */
+    .card-glass {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-glass::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    }
+
+    /* Header Section */
+    .form-header {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+      padding: 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .form-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-subtitle {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-body {
+      padding: 2rem;
+    }
+
+    /* Form Groups */
+    .form-group {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .form-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #cbd5f5;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-label i {
+      color: #3b82f6;
+      font-size: 1rem;
+    }
+
+    /* Input Styling */
+    .input-wrapper {
+      position: relative;
+    }
+
+    .form-control-custom {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.6);
+      border: 2px solid rgba(51, 65, 85, 0.5);
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      color: #fff;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      outline: none;
+    }
+
+    .form-control-custom::placeholder {
+      color: #64748b;
+    }
+
+    .form-control-custom:hover {
+      border-color: rgba(59, 130, 246, 0.5);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .form-control-custom:focus {
+      border-color: #3b82f6;
+      background: rgba(15, 23, 42, 0.9);
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+    }
+
+    /* Select styling */
+    select.form-control-custom {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 3rem;
+    }
+
+    /* Date input styling */
+    input[type="date"].form-control-custom {
+      color-scheme: dark;
+    }
+
+    /* Input icon */
+    .input-icon {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #64748b;
+      pointer-events: none;
+      transition: color 0.3s ease;
+    }
+
+    .form-control-custom:focus ~ .input-icon {
+      color: #3b82f6;
+    }
+
+    /* Submit Button */
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+      background-size: 200% 200%;
+      border: none;
+      border-radius: 14px;
+      padding: 1.125rem;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.5);
+      margin-top: 1rem;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.6);
+      background-position: 100% 0;
+    }
+
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+
+    .btn-submit::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn-submit:hover::before {
+      left: 100%;
+    }
+
+    .btn-submit i {
+      margin-right: 0.5rem;
+    }
+
+    /* Success Animation */
+    @keyframes successPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .success-animation {
+      animation: successPulse 0.5s ease;
+    }
+
+    /* Loading State */
+    .btn-submit.loading {
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
+    .btn-submit.loading::after {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Toast Notification */
+    .toast-container {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      z-index: 9999;
+      transform: translateX(400px);
+      transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .toast-container.show {
+      transform: translateX(0);
+    }
+
+    .toast-custom {
+      background: rgba(30, 41, 59, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-width: 300px;
+    }
+
+    .toast-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .toast-icon.success {
+      background: rgba(34, 197, 94, 0.2);
+      color: #22c55e;
+    }
+
+    .toast-icon.error {
+      background: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+    }
+
+    .toast-content h6 {
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+
+    .toast-content p {
+      color: #94a3b8;
+      margin: 0;
+      font-size: 0.875rem;
+    }
+
+    /* Floating labels animation */
+    .form-group {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.5s ease forwards;
+    }
+
+    .form-group:nth-child(1) { animation-delay: 0.1s; }
+    .form-group:nth-child(2) { animation-delay: 0.2s; }
+    .form-group:nth-child(3) { animation-delay: 0.3s; }
+    .form-group:nth-child(4) { animation-delay: 0.4s; }
+    .form-group:nth-child(5) { animation-delay: 0.5s; }
+    .form-group:nth-child(6) { animation-delay: 0.6s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 576px) {
+      .main-container {
+        padding: 1rem 0.75rem;
+      }
+      
+      .form-header {
+        padding: 1.5rem;
+      }
+      
+      .form-title {
+        font-size: 1.5rem;
+      }
+      
+      .form-body {
+        padding: 1.5rem;
+      }
+      
+      .toast-container {
+        right: 1rem;
+        left: 1rem;
+        top: 1rem;
+      }
+      
+      .toast-custom {
+        min-width: auto;
+      }
+    }
+
+    /* Price input with currency symbol */
+    .price-wrapper {
+      position: relative;
+    }
+
+    .currency-symbol {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #64748b;
+      font-weight: 500;
+      pointer-events: none;
+    }
+
+    .price-wrapper .form-control-custom {
+      padding-left: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="main-container">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        
+        <div class="card card-glass">
+          
+          <!-- Header -->
+          <div class="form-header">
+            <h4 class="form-title">
+              <i class="bi bi-box-seam me-2"></i>Input Data Pesanan
+            </h4>
+            <p class="form-subtitle">Masukkan detail pesanan dengan lengkap</p>
+          </div>
+
+          <!-- Form Body -->
+          <div class="form-body">
+            <form id="formData">
+
+              <div class="form-group">
+                <label class="form-label">
+                  <i class="bi bi-tag"></i>
+                  Nama Produk
+                </label>
+                <div class="input-wrapper">
+                  <input type="text" id="nama_data" class="form-control-custom" placeholder="Contoh: Sepatu Nike Air" required>
+                  <i class="bi bi-box input-icon"></i>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <i class="bi bi-currency-dollar"></i>
+                  Harga
+                </label>
+                <div class="price-wrapper">
+                  <span class="currency-symbol">Rp</span>
+                  <input type="number" id="harga_data" class="form-control-custom" placeholder="0" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <i class="bi bi-upc-scan"></i>
+                  No Resi
+                </label>
+                <div class="input-wrapper">
+                  <input type="text" id="no_res" class="form-control-custom" placeholder="Contoh: JNE123456789">
+                  <i class="bi bi-truck input-icon"></i>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <i class="bi bi-hash"></i>
+                  No Pesanan
+                </label>
+                <div class="input-wrapper">
+                  <input type="text" id="no_pesanan" class="form-control-custom" placeholder="Contoh: SP-2024-001">
+                  <i class="bi bi-clipboard input-icon"></i>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <i class="bi bi-check-circle"></i>
+                  Status Pesanan
+                </label>
+                <select id="status_pesanan" class="form-control-custom">
+                  <option value="Dikirim">🚚 Dikirim</option>
+                  <option value="Selesai">✅ Selesai</option>
+                  <option value="Pending">⏳ Pending</option>
+                  <option value="Dibatalkan">❌ Dibatalkan</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <i class="bi bi-calendar3"></i>
+                  Tanggal Pesan
+                </label>
+                <input type="date" id="tanggal_pesan" class="form-control-custom">
+              </div>
+
+              <button type="submit" class="btn-submit" id="submitBtn">
+                <i class="bi bi-save-fill"></i>
+                Simpan Data
+              </button>
+
+            </form>
+          </div>
+
+        </div>
+
+        <!-- Footer text -->
+        <p class="text-center mt-4" style="color: #64748b; font-size: 0.875rem;">
+          <i class="bi bi-shield-check me-1"></i>
+          Data tersimpan aman di Firebase
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast-container" id="toast">
+  <div class="toast-custom">
+    <div class="toast-icon" id="toastIcon">
+      <i class="bi bi-check-lg"></i>
+    </div>
+    <div class="toast-content">
+      <h6 id="toastTitle">Berhasil!</h6>
+      <p id="toastMessage">Data telah disimpan</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// Set default date to today
+document.getElementById('tanggal_pesan').valueAsDate = new Date();
+
+// Toast notification function
+function showToast(type, title, message) {
+  const toast = document.getElementById('toast');
+  const toastIcon = document.getElementById('toastIcon');
+  const toastTitle = document.getElementById('toastTitle');
+  const toastMessage = document.getElementById('toastMessage');
+  
+  toastIcon.className = 'toast-icon ' + type;
+  toastIcon.innerHTML = type === 'success' 
+    ? '<i class="bi bi-check-lg"></i>' 
+    : '<i class="bi bi-x-lg"></i>';
+  toastTitle.textContent = title;
+  toastMessage.textContent = message;
+  
+  toast.classList.add('show');
+  
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3000);
+}
+
+// Form submission
+document.getElementById("formData").addEventListener("submit", function(e) {
+  e.preventDefault();
+  
+  const submitBtn = document.getElementById('submitBtn');
+  submitBtn.classList.add('loading');
+  submitBtn.innerHTML = 'Menyimpan...';
+  
+  const data = {
+    nama_data: document.getElementById("nama_data").value,
+    harga_data: document.getElementById("harga_data").value,
+    no_res: document.getElementById("no_res").value,
+    no_pesanan: document.getElementById("no_pesanan").value,
+    status_pesanan: document.getElementById("status_pesanan").value,
+    tanggal_pesan: document.getElementById("tanggal_pesan").value,
+    timestamp: new Date().toISOString()
+  };
+
+  fetch("https://hams-71af2-default-rtdb.firebaseio.com/data/paket.json", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+  .then(res => {
+    showToast('success', 'Berhasil!', 'Data pesanan telah disimpan ke database');
+    document.getElementById("formData").reset();
+    document.getElementById('tanggal_pesan').valueAsDate = new Date();
+    
+    // Add success animation to card
+    const card = document.querySelector('.card-glass');
+    card.classList.add('success-animation');
+    setTimeout(() => card.classList.remove('success-animation'), 500);
+  })
+  .catch(err => {
+    showToast('error', 'Gagal!', 'Terjadi kesalahan saat menyimpan data');
+    console.error(err);
+  })
+  .finally(() => {
+    submitBtn.classList.remove('loading');
+    submitBtn.innerHTML = '<i class="bi bi-save-fill"></i> Simpan Data';
+  });
+});
+</script>
+
+</body>
+</html>
