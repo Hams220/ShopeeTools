@@ -45,6 +45,46 @@
         color: #fff !important;
       }
 
+      /* User menu styling */
+      .user-menu {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .user-info {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #cbd5f5;
+        font-size: 0.9rem;
+      }
+
+      .user-info i {
+        color: #3b82f6;
+        font-size: 1.25rem;
+      }
+
+      .btn-logout {
+        background: rgba(239, 68, 68, 0.15);
+        color: #ef4444;
+        border: none;
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .btn-logout:hover {
+        background: rgba(239, 68, 68, 0.25);
+        transform: translateY(-1px);
+      }
+
       /* Card styling */
       .card-dark {
         background: #1e293b;
@@ -383,6 +423,17 @@
         0% { background-position: 200% 0; }
         100% { background-position: -200% 0; }
       }
+
+      /* Responsive navbar */
+      @media (max-width: 991px) {
+        .user-menu {
+          flex-direction: column;
+          align-items: flex-start;
+          margin-top: 1rem;
+          padding-top: 1rem;
+          border-top: 1px solid rgba(255,255,255,0.1);
+        }
+      }
     </style>
   </head>
   <body>
@@ -396,7 +447,7 @@
       </button>
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav gap-3">
+        <ul class="navbar-nav gap-3 me-3">
           <li class="nav-item">
             <a class="nav-link" href="#">Home</a>
           </li>
@@ -404,16 +455,28 @@
             <a class="nav-link" href="input.html">Input</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="scan.html">scan</a>
+            <a class="nav-link" href="scan.html">Scan</a>
           </li>
         </ul>
+        
+        <!-- User Menu with Logout -->
+        <div class="user-menu" id="userMenu" style="display: none;">
+          <div class="user-info">
+            <i class="bi bi-person-circle"></i>
+            <span id="usernameDisplay">User</span>
+          </div>
+          <button class="btn-logout" onclick="logout()">
+            <i class="bi bi-box-arrow-right"></i>
+            Logout
+          </button>
+        </div>
       </div>
     </nav>
 
     <!-- Welcome Card -->
     <div class="container py-3">
       <div class="card card-dark p-4 text-white">
-        <h3 class="mb-3">Welcome 👋</h3>
+        <h3 class="mb-3">Welcome 👋 <span id="welcomeUsername"></span></h3>
         <p class="mb-0 text-secondary">Kelola data pesanan Shopee Anda dengan mudah. Data realtime dari Firebase.</p>
       </div>
     </div>
@@ -459,7 +522,7 @@
 
     <!-- Data Cards Section -->
     <div class="container py-3 pb-5">
-      <h4 class="section-title">Data Pesanan</h4>
+      <h4 class="section-title">Data Pesanan <span id="dataCount" class="text-secondary" style="font-size: 0.875rem; font-weight: 400;"></span></h4>
 
       <!-- Loading State -->
       <div id="loadingState">
@@ -475,7 +538,7 @@
       <div id="emptyState" class="empty-state" style="display: none;">
         <i class="bi bi-inbox"></i>
         <h5>Belum ada data</h5>
-        <p>Data pesanan akan muncul di sini</p>
+        <p>Data pesanan akan muncul di sini. <a href="input.html" class="text-primary">Tambah data baru</a></p>
       </div>
     </div>
 
@@ -547,14 +610,59 @@
 
     <script>
       const url = "https://hams-71af2-default-rtdb.firebaseio.com/data/paket.json";
-      let allData = {}; // Store all data for search functionality
+      let allData = {};
+      let currentUser = null;
       let editModal;
 
-      // Initialize modal
+      // Check session on page load
       document.addEventListener('DOMContentLoaded', function() {
-        editModal = new bootstrap.Modal(document.getElementById('editModal'));
-        loadData();
+        checkSession();
       });
+
+      function checkSession() {
+        const session = localStorage.getItem('userSession');
+        
+        if (!session) {
+          // No session, redirect to login
+          window.location.href = 'login.html';
+          return;
+        }
+
+        try {
+          currentUser = JSON.parse(session);
+          
+          if (!currentUser.isLoggedIn || !currentUser.username) {
+            // Invalid session
+            localStorage.removeItem('userSession');
+            window.location.href = 'login.html';
+            return;
+          }
+
+          // Valid session - show user menu
+          document.getElementById('userMenu').style.display = 'flex';
+          document.getElementById('usernameDisplay').textContent = currentUser.username;
+          document.getElementById('welcomeUsername').textContent = currentUser.username;
+          
+          // Initialize modal and load data
+          editModal = new bootstrap.Modal(document.getElementById('editModal'));
+          loadData();
+
+        } catch (error) {
+          console.error('Session error:', error);
+          localStorage.removeItem('userSession');
+          window.location.href = 'login.html';
+        }
+      }
+
+      function logout() {
+        if (confirm('Yakin ingin logout?')) {
+          localStorage.removeItem('userSession');
+          showToast('Berhasil logout', 'success');
+          setTimeout(() => {
+            window.location.href = 'login.html';
+          }, 500);
+        }
+      }
 
       function formatRupiah(angka) {
         if (!angka) return "Rp 0";
@@ -627,7 +735,6 @@
           return status === "dikirim" || status === "pending";
         }).length;
 
-        // Animate numbers
         animateNumber('totalTransaksi', total);
         animateNumber('totalSelesai', selesai);
         animateNumber('totalProses', proses);
@@ -642,7 +749,7 @@
         function update(currentTime) {
           const elapsed = currentTime - startTime;
           const progress = Math.min(elapsed / duration, 1);
-          const easeProgress = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+          const easeProgress = 1 - Math.pow(1 - progress, 3);
           const current = Math.floor(start + (target - start) * easeProgress);
 
           element.textContent = current;
@@ -666,14 +773,20 @@
             allData = data || {};
             document.getElementById('loadingState').style.display = 'none';
 
-            updateStats(data);
+            // Filter data by current username
+            const userData = filterDataByUser(allData);
+            
+            updateStats(userData);
+            
+            const dataCount = Object.keys(userData).length;
+            document.getElementById('dataCount').textContent = `(${dataCount} items)`;
 
-            if (!data || Object.keys(data).length === 0) {
+            if (dataCount === 0) {
               document.getElementById('emptyState').style.display = 'block';
               return;
             }
 
-            renderData(data);
+            renderData(userData);
             document.getElementById('daftarPaket').style.display = 'block';
           })
           .catch(err => {
@@ -681,6 +794,28 @@
             document.getElementById('loadingState').style.display = 'none';
             showToast('Gagal memuat data', 'error');
           });
+      }
+
+      function filterDataByUser(data) {
+        if (!currentUser || !currentUser.username) return {};
+        
+        const filtered = {};
+        
+        for (const [key, item] of Object.entries(data)) {
+          // Check if item has user_id matching current username
+          // or created_by field, or we can check if username is in any field
+          // For now, we'll check user_id or created_by or username field
+         const itemOwner = item.user_id || item.created_by || item.username || null;
+          
+          // If no owner field exists, we might need to set it during creation
+          // For backward compatibility, show all data if no owner is set
+          // or only show data that matches current user
+          if (itemOwner === currentUser.username) {
+            filtered[key] = item;
+          }
+        }
+        
+        return filtered;
       }
 
       function renderData(data, searchTerm = '') {
@@ -702,7 +837,7 @@
           });
         }
 
-        // Sort by newest first (assuming keys are timestamps or use timestamp field)
+        // Sort by newest first
         keys.reverse();
 
         if (keys.length === 0) {
@@ -782,12 +917,15 @@
 
       function searchData() {
         const searchTerm = document.getElementById('searchInput').value;
-        renderData(allData, searchTerm);
+        // Filter by user first, then by search term
+        const userData = filterDataByUser(allData);
+        renderData(userData, searchTerm);
       }
 
       // Live search on input
       document.getElementById('searchInput')?.addEventListener('input', function(e) {
-        renderData(allData, e.target.value);
+       const userData = filterDataByUser(allData);
+        renderData(userData, e.target.value);
       });
 
       function deleteData(id) {
@@ -800,7 +938,7 @@
         })
         .then(() => {
           showToast('Data berhasil dihapus');
-          loadData(); // Reload to update stats and list
+          loadData();
         })
         .catch(err => {
           console.error(err);
@@ -815,7 +953,13 @@
           return;
         }
 
-        // Fill form with existing data
+        // Check if user owns this data
+        const itemOwner = item.user_id || item.created_by || item.username || null;
+        if (itemOwner && itemOwner !== currentUser.username) {
+          showToast('Anda tidak memiliki akses untuk mengedit data ini', 'error');
+          return;
+        }
+
         document.getElementById('editId').value = id;
         document.getElementById('editNama').value = item.nama_data || '';
         document.getElementById('editHarga').value = item.harga_data || '';
@@ -824,7 +968,6 @@
         document.getElementById('editStatus').value = item.status_pesanan || 'Pending';
         document.getElementById('editTanggal').value = item.tanggal_pesan || '';
 
-        // Show modal
         editModal.show();
       }
 
@@ -839,10 +982,10 @@
           no_pesanan: document.getElementById('editNoPesanan').value,
           status_pesanan: document.getElementById('editStatus').value,
           tanggal_pesan: document.getElementById('editTanggal').value,
-          updated_at: new Date().toISOString()
+          updated_at: new Date().toISOString(),
+          updated_by: currentUser.username
         };
 
-        // Show loading state on button
         const saveBtn = document.querySelector('.btn-save');
         const originalContent = saveBtn.innerHTML;
         saveBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Menyimpan...';
@@ -862,7 +1005,7 @@
         .then(() => {
           editModal.hide();
           showToast('Data berhasil diperbarui');
-          loadData(); // Reload to show updated data
+          loadData();
         })
         .catch(err => {
           console.error(err);
@@ -874,7 +1017,6 @@
         });
       }
 
-      // Close modal on escape key
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
           editModal?.hide();
