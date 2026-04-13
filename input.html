@@ -483,35 +483,47 @@
         min-width: auto;
       }
     }
+    
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-custom">
-    <div class="container-fluid">
-      <a href="index.html" class="back-btn">
-        <i class="bi bi-arrow-left"></i>
-        <span>Kembali</span>
-      </a>
-      <a class="navbar-brand ms-auto" href="#">
-        <i class="bi bi-box-seam"></i>
-        ShopeeTools
-      </a>
-      
-      <!-- User Menu with Logout -->
-      <div class="user-menu ms-3" id="userMenu" style="display: none;">
-        <div class="user-info">
-          <i class="bi bi-person-circle"></i>
-          <span id="usernameDisplay">User</span>
+ <nav class="navbar navbar-expand-lg navbar-custom px-4">
+      <a class="navbar-brand" href="#">ShopeeTools</a>
+
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        ☰
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav gap-3 me-3">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-primary text-decoration-underline" href="input.html">
+              Input
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="scan.html">Scan</a>
+          </li>
+        </ul>
+        
+        <!-- User Menu with Logout -->
+        <div class="user-menu" id="userMenu" style="display: none;">
+          <div class="user-info">
+            <i class="bi bi-person-circle"></i>
+            <span id="usernameDisplay">User</span>
+          </div>
+          <button class="btn-logout" onclick="logout()">
+            <i class="bi bi-box-arrow-right"></i>
+            Logout
+          </button>
         </div>
-        <button class="btn-logout" onclick="logout()">
-          <i class="bi bi-box-arrow-right"></i>
-          Logout
-        </button>
       </div>
-    </div>
-  </nav>
+    </nav>
 
   <div class="main-container">
     <div class="container">
