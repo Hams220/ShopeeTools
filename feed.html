@@ -181,6 +181,27 @@
       border-top: 1px solid rgba(255,255,255,0.1);
     }
 
+    .post-options {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .privacy-select {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(51, 65, 85, 0.5);
+      border-radius: 10px;
+      padding: 0.5rem 1rem;
+      color: #cbd5f5;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+
+    .privacy-select:focus {
+      outline: none;
+      border-color: #3b82f6;
+    }
+
     .post-hint {
       color: #64748b;
       font-size: 0.875rem;
@@ -276,12 +297,22 @@
       margin: 0;
     }
 
+    .privacy-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.75rem;
+      color: #64748b;
+      margin-left: 0.5rem;
+    }
+
     .post-content {
       color: #e5e7eb;
       font-size: 1rem;
       line-height: 1.6;
       white-space: pre-wrap;
       word-wrap: break-word;
+      margin-bottom: 1rem;
     }
 
     /* Clickable Links */
@@ -295,6 +326,227 @@
     .post-content a:hover {
       color: #60a5fa;
       text-decoration: underline;
+    }
+
+    /* Post Actions Bar */
+    .post-action-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .btn-like {
+      background: none;
+      border: none;
+      color: #94a3b8;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-like:hover {
+      background: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+    }
+
+    .btn-like.liked {
+      color: #ef4444;
+    }
+
+    .btn-like.liked i {
+      animation: heartBeat 0.3s ease;
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    .btn-comment {
+      background: none;
+      border: none;
+      color: #94a3b8;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-comment:hover {
+      background: rgba(59, 130, 246, 0.1);
+      color: #3b82f6;
+    }
+
+    .like-count, .comment-count {
+      font-weight: 500;
+    }
+
+    /* Comment Modal */
+    .modal-content {
+      background: #1e293b;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      color: #fff;
+      max-height: 80vh;
+    }
+
+    .modal-header {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 1.25rem 1.5rem;
+    }
+
+    .modal-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .modal-body {
+      padding: 0;
+      overflow-y: auto;
+      max-height: 60vh;
+    }
+
+    .comments-list {
+      padding: 1rem 1.5rem;
+    }
+
+    .comment-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .comment-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #fff;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .comment-content {
+      flex: 1;
+    }
+
+    .comment-author {
+      font-weight: 600;
+      color: #fff;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .comment-text {
+      color: #cbd5f5;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 0.25rem;
+    }
+
+    .comment-time {
+      color: #64748b;
+      font-size: 0.8rem;
+    }
+
+    .comment-input-area {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      background: rgba(15, 23, 42, 0.5);
+      border-radius: 0 0 20px 20px;
+    }
+
+    .comment-input-wrapper {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-end;
+    }
+
+    .comment-input {
+      flex: 1;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(51, 65, 85, 0.5);
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      color: #fff;
+      font-size: 0.95rem;
+      resize: none;
+      min-height: 44px;
+      max-height: 120px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .comment-input:focus {
+      outline: none;
+      border-color: #3b82f6;
+    }
+
+    .comment-input::placeholder {
+      color: #64748b;
+    }
+
+    .btn-send-comment {
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      border: none;
+      border-radius: 12px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .btn-send-comment:hover:not(:disabled) {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-send-comment:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .btn-close {
+      filter: invert(1);
+    }
+
+    /* Empty comments */
+    .empty-comments {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: #64748b;
+    }
+
+    .empty-comments i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #475569;
     }
 
     /* Loading Skeleton */
@@ -391,6 +643,24 @@
       .post-textarea {
         min-height: 80px;
       }
+
+      .modal-content {
+        border-radius: 16px 16px 0 0;
+        margin: 0;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-height: 85vh;
+      }
+
+      .modal-dialog {
+        margin: 0;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
     }
   </style>
 </head>
@@ -439,10 +709,12 @@
         </div>
       </div>
       <div class="post-actions">
-        <span class="post-hint">
-          <i class="bi bi-link-45deg"></i>
-          URL akan otomatis menjadi link
-        </span>
+        <div class="post-options">
+          <select class="privacy-select" id="privacySelect">
+            <option value="public">🌎 Publik</option>
+            <option value="private">🔒 Hanya Saya</option>
+          </select>
+        </div>
         <button class="btn-post" id="btnPost" onclick="createPost()">
           <i class="bi bi-send-fill"></i>
           Posting
@@ -476,6 +748,39 @@
 
   </div>
 
+  <!-- Comment Modal -->
+  <div class="modal fade" id="commentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <i class="bi bi-chat-dots me-2"></i>
+            Komentar
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="comments-list" id="commentsList">
+            <!-- Comments will be loaded here -->
+          </div>
+        </div>
+        <div class="comment-input-area">
+          <div class="comment-input-wrapper">
+            <textarea 
+              class="comment-input" 
+              id="commentInput" 
+              placeholder="Tulis komentar..."
+              rows="1"
+            ></textarea>
+            <button class="btn-send-comment" id="btnSendComment" onclick="submitComment()">
+              <i class="bi bi-send-fill"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Toast Container -->
   <div class="toast-container" id="toastContainer"></div>
 
@@ -483,8 +788,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    const API_URL = "https://hams-71af2-default-rtdb.firebaseio.com/data/feed.json";
+    const FEED_URL = "https://hams-71af2-default-rtdb.firebaseio.com/data/feed.json";
+    const COMMENTS_URL = "https://hams-71af2-default-rtdb.firebaseio.com/data/feed_comments.json";
     let currentUser = null;
+    let currentPostId = null;
+    let commentModal;
 
     // Check session on page load
     document.addEventListener('DOMContentLoaded', function() {
@@ -516,6 +824,9 @@
         const initial = currentUser.username.charAt(0).toUpperCase();
         document.getElementById('currentUserAvatar').textContent = initial;
 
+        // Initialize modal
+        commentModal = new bootstrap.Modal(document.getElementById('commentModal'));
+
         // Load feed
         loadFeed();
 
@@ -530,13 +841,14 @@
       if (confirm('Yakin ingin logout?')) {
         localStorage.removeItem('userSession');
         showToast('Berhasil logout', 'success');
-        setTimeout(() => {
+        setTimeout(function() {
           window.location.href = 'login.html';
         }, 500);
       }
     }
 
-    function showToast(message, type = 'success') {
+    function showToast(message, type) {
+      type = type || 'success';
       const container = document.getElementById('toastContainer');
       const toastId = 'toast-' + Date.now();
 
@@ -554,39 +866,35 @@
 
       container.insertAdjacentHTML('beforeend', toastHtml);
 
-      setTimeout(() => {
+      setTimeout(function() {
         document.getElementById(toastId).classList.add('show');
       }, 10);
 
-      setTimeout(() => {
+      setTimeout(function() {
         const toast = document.getElementById(toastId);
         if (toast) {
           toast.classList.remove('show');
-          setTimeout(() => toast.remove(), 400);
+          setTimeout(function() { toast.remove(); }, 400);
         }
       }, 3000);
     }
 
     // Detect URLs and convert to clickable links
     function linkifyText(text) {
-      // URL regex pattern
       const urlPattern = /(https?:\/\/[^\s]+)/g;
       
-      // Replace URLs with anchor tags
-      return text.replace(urlPattern, (url) => {
-        // Ensure URL has protocol
+      return text.replace(urlPattern, function(url) {
         let href = url;
         if (!href.startsWith('http')) {
           href = 'https://' + href;
         }
         
-        // Truncate long URLs for display
         let displayUrl = url;
         if (url.length > 50) {
           displayUrl = url.substring(0, 47) + '...';
         }
         
-        return `<a href="${href}" target="_blank" rel="noopener noreferrer" title="${url}">${displayUrl}</a>`;
+        return '<a href="' + href + '" target="_blank" rel="noopener noreferrer" title="' + url + '">' + displayUrl + '</a>';
       });
     }
 
@@ -600,12 +908,12 @@
     function formatTime(timestamp) {
       const date = new Date(timestamp);
       const now = new Date();
-      const diff = Math.floor((now - date) / 1000); // seconds
+      const diff = Math.floor((now - date) / 1000);
 
       if (diff < 60) return 'Baru saja';
-      if (diff < 3600) return `${Math.floor(diff / 60)} menit yang lalu`;
-      if (diff < 86400) return `${Math.floor(diff / 3600)} jam yang lalu`;
-      if (diff < 604800) return `${Math.floor(diff / 86400)} hari yang lalu`;
+      if (diff < 3600) return Math.floor(diff / 60) + ' menit yang lalu';
+      if (diff < 86400) return Math.floor(diff / 3600) + ' jam yang lalu';
+      if (diff < 604800) return Math.floor(diff / 86400) + ' hari yang lalu';
       
       return date.toLocaleDateString('id-ID', {
         day: 'numeric',
@@ -616,8 +924,16 @@
       });
     }
 
-    async function createPost() {
+    function getPrivacyBadge(privacy) {
+      if (privacy === 'private') {
+        return '<span class="privacy-badge"><i class="bi bi-lock-fill"></i> Hanya saya</span>';
+      }
+      return '<span class="privacy-badge"><i class="bi bi-globe"></i> Publik</span>';
+    }
+
+    function createPost() {
       const content = document.getElementById('postContent').value.trim();
+      const privacy = document.getElementById('privacySelect').value;
       const btn = document.getElementById('btnPost');
 
       if (!content) {
@@ -638,46 +954,50 @@
         content: content,
         username: currentUser.username,
         user_id: currentUser.id || currentUser.username,
+        privacy: privacy,
+        likes: {},
+        like_count: 0,
+        comment_count: 0,
         created_at: new Date().toISOString(),
         timestamp: Date.now()
       };
 
-      try {
-        const response = await fetch(API_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(postData)
-        });
-
-        if (!response.ok) throw new Error('Failed to post');
-
+      fetch(FEED_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+      })
+      .then(function(res) {
+        if (!res.ok) throw new Error('Failed to post');
+        return res.json();
+      })
+      .then(function() {
         showToast('Status berhasil diposting!', 'success');
         document.getElementById('postContent').value = '';
-        
-        // Reload feed
+        document.getElementById('privacySelect').value = 'public';
         loadFeed();
-
-      } catch (error) {
+      })
+      .catch(function(error) {
         console.error('Error posting:', error);
         showToast('Gagal memposting. Coba lagi.', 'error');
-      } finally {
+      })
+      .finally(function() {
         btn.disabled = false;
         btn.classList.remove('loading');
         btn.innerHTML = '<i class="bi bi-send-fill"></i> Posting';
-      }
+      });
     }
 
-    async function loadFeed() {
+    function loadFeed() {
       document.getElementById('loadingState').style.display = 'block';
       document.getElementById('feedContainer').style.display = 'none';
       document.getElementById('emptyState').style.display = 'none';
 
-      try {
-        const response = await fetch(API_URL);
-        const data = await response.json();
-
+      fetch(FEED_URL)
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
         document.getElementById('loadingState').style.display = 'none';
 
         if (!data || Object.keys(data).length === 0) {
@@ -687,45 +1007,237 @@
 
         renderFeed(data);
         document.getElementById('feedContainer').style.display = 'block';
-
-      } catch (error) {
+      })
+      .catch(function(error) {
         console.error('Error loading feed:', error);
         document.getElementById('loadingState').style.display = 'none';
         showToast('Gagal memuat feed', 'error');
-      }
+      });
     }
 
     function renderFeed(data) {
       const container = document.getElementById('feedContainer');
       container.innerHTML = '';
 
-      // Convert to array and sort by timestamp (newest first)
       const posts = Object.entries(data)
-        .map(([key, value]) => ({ id: key, ...value }))
-        .sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+        .map(function(entry) {
+          return { id: entry[0], ...entry[1] };
+        })
+        .filter(function(post) {
+          // Show public posts OR private posts owned by current user
+          return post.privacy !== 'private' || post.user_id === currentUser.username || post.username === currentUser.username;
+        })
+        .sort(function(a, b) {
+          return (b.timestamp || 0) - (a.timestamp || 0);
+        });
 
-      posts.forEach((post, index) => {
+      if (posts.length === 0) {
+        document.getElementById('emptyState').style.display = 'block';
+        return;
+      }
+
+      posts.forEach(function(post, index) {
         const initial = (post.username || 'U').charAt(0).toUpperCase();
         const timeAgo = formatTime(post.created_at);
-        
-        // Process content: escape HTML then linkify URLs
         const safeContent = escapeHtml(post.content);
         const linkedContent = linkifyText(safeContent);
+        const privacyBadge = getPrivacyBadge(post.privacy);
+        
+        // Check if current user liked this post
+        const likes = post.likes || {};
+        const isLiked = likes[currentUser.username] === true;
+        const likeCount = Object.keys(likes).length;
+        const commentCount = post.comment_count || 0;
 
         const html = `
           <div class="feed-post" style="animation-delay: ${index * 0.1}s">
             <div class="post-header">
               <div class="post-avatar">${initial}</div>
               <div class="post-meta">
-                <h5 class="post-author">${escapeHtml(post.username || 'Unknown')}</h5>
+                <h5 class="post-author">${escapeHtml(post.username || 'Unknown')}${privacyBadge}</h5>
                 <p class="post-time">${timeAgo}</p>
               </div>
             </div>
             <div class="post-content">${linkedContent}</div>
+            
+            <div class="post-action-bar">
+              <button class="btn-like ${isLiked ? 'liked' : ''}" onclick="toggleLike('${post.id}')">
+                <i class="bi ${isLiked ? 'bi-heart-fill' : 'bi-heart'}"></i>
+                <span class="like-count" id="likeCount-${post.id}">${likeCount}</span>
+              </button>
+              <button class="btn-comment" onclick="openComments('${post.id}')">
+                <i class="bi bi-chat"></i>
+                <span class="comment-count" id="commentCount-${post.id}">${commentCount}</span>
+              </button>
+            </div>
           </div>
         `;
 
         container.innerHTML += html;
+      });
+    }
+
+    function toggleLike(postId) {
+      if (!currentUser) {
+        showToast('Silakan login ulang', 'error');
+        return;
+      }
+
+      const postRef = 'https://hams-71af2-default-rtdb.firebaseio.com/data/feed/' + postId + '.json';
+
+      fetch(postRef)
+      .then(function(res) { return res.json(); })
+      .then(function(post) {
+        const likes = post.likes || {};
+        const username = currentUser.username;
+        
+        if (likes[username]) {
+          delete likes[username];
+        } else {
+          likes[username] = true;
+        }
+
+        return fetch(postRef, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            likes: likes,
+            like_count: Object.keys(likes).length
+          })
+        });
+      })
+      .then(function() {
+        loadFeed();
+      })
+      .catch(function(error) {
+        console.error('Error toggling like:', error);
+        showToast('Gagal menyukai postingan', 'error');
+      });
+    }
+
+    function openComments(postId) {
+      currentPostId = postId;
+      document.getElementById('commentInput').value = '';
+      loadComments(postId);
+      commentModal.show();
+    }
+
+    function loadComments(postId) {
+      const commentsList = document.getElementById('commentsList');
+      commentsList.innerHTML = '<div class="text-center py-4"><div class="spinner-border text-primary"></div></div>';
+
+      fetch(COMMENTS_URL)
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        const allComments = data || {};
+        const postComments = [];
+
+        for (const key in allComments) {
+          if (allComments.hasOwnProperty(key)) {
+            const comment = allComments[key];
+            if (comment.post_id === postId) {
+              postComments.push({ id: key, ...comment });
+            }
+          }
+        }
+
+        postComments.sort(function(a, b) {
+          return (a.timestamp || 0) - (b.timestamp || 0);
+        });
+
+        if (postComments.length === 0) {
+          commentsList.innerHTML = `
+            <div class="empty-comments">
+              <i class="bi bi-chat-dots"></i>
+              <p>Belum ada komentar</p>
+              <small>Jadilah yang pertama berkomentar</small>
+            </div>
+          `;
+          return;
+        }
+
+        commentsList.innerHTML = '';
+        postComments.forEach(function(comment, index) {
+          const initial = (comment.username || 'U').charAt(0).toUpperCase();
+          const timeAgo = formatTime(comment.created_at);
+
+          const html = `
+            <div class="comment-item" style="animation-delay: ${index * 0.05}s">
+              <div class="comment-avatar">${initial}</div>
+              <div class="comment-content">
+                <div class="comment-author">${escapeHtml(comment.username || 'Unknown')}</div>
+                <div class="comment-text">${escapeHtml(comment.content)}</div>
+                <div class="comment-time">${timeAgo}</div>
+              </div>
+            </div>
+          `;
+
+          commentsList.innerHTML += html;
+        });
+      })
+      .catch(function(error) {
+        console.error('Error loading comments:', error);
+        commentsList.innerHTML = '<div class="text-center py-4 text-danger">Gagal memuat komentar</div>';
+      });
+    }
+
+    function submitComment() {
+      const content = document.getElementById('commentInput').value.trim();
+      const btn = document.getElementById('btnSendComment');
+
+      if (!content) {
+        showToast('Tulis komentar dulu!', 'error');
+        return;
+      }
+
+      if (!currentPostId) return;
+
+      btn.disabled = true;
+
+      const commentData = {
+        post_id: currentPostId,
+        content: content,
+        username: currentUser.username,
+        user_id: currentUser.id || currentUser.username,
+        created_at: new Date().toISOString(),
+        timestamp: Date.now()
+      };
+
+      // Save comment
+      fetch(COMMENTS_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(commentData)
+      })
+      .then(function(res) {
+        if (!res.ok) throw new Error('Failed to save comment');
+        return res.json();
+      })
+      .then(function() {
+        // Update comment count on post
+        const postRef = 'https://hams-71af2-default-rtdb.firebaseio.com/data/feed/' + currentPostId + '.json';
+        return fetch(postRef)
+        .then(function(res) { return res.json(); })
+        .then(function(post) {
+          const currentCount = post.comment_count || 0;
+          return fetch(postRef, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ comment_count: currentCount + 1 })
+          });
+        });
+      })
+      .then(function() {
+        document.getElementById('commentInput').value = '';
+        loadComments(currentPostId);
+        loadFeed(); // Refresh feed to update comment count
+      })
+      .catch(function(error) {
+        console.error('Error posting comment:', error);
+        showToast('Gagal mengirim komentar', 'error');
+      })
+      .finally(function() {
+        btn.disabled = false;
       });
     }
 
@@ -739,6 +1251,20 @@
     document.getElementById('postContent').addEventListener('keydown', function(e) {
       if (e.ctrlKey && e.key === 'Enter') {
         createPost();
+      }
+    });
+
+    // Comment input auto-resize
+    document.getElementById('commentInput').addEventListener('input', function() {
+      this.style.height = 'auto';
+      this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+    });
+
+    // Submit comment on Enter
+    document.getElementById('commentInput').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        submitComment();
       }
     });
   </script>
