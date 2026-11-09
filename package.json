@@ -1,0 +1,17 @@
+{
+  "name": "telegram-miniapp-modular",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "*",
+    "jsqr": "^1.4.0",
+    "playwright": "*",
+    "pngjs": "^7.0.0",
+    "teleproto": "*",
+    "xlsx": "^0.18.5"
+  }
+}

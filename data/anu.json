@@ -1,0 +1,1514 @@
+{
+  "status": "success",
+  "orders_data": {
+    "error": 0,
+    "error_msg": "",
+    "new_data": {
+      "order_or_checkout_data": [
+        {
+          "order_list_detail": {
+            "status": {
+              "status_label": {
+                "text": "label_preparing_order",
+                "tl": false
+              },
+              "list_view_text": {
+                "text": "order_list_text_to_ship_order_shipbydate",
+                "tl": false,
+                "attributes": [
+                  {
+                    "name": "ship_by_date",
+                    "value": "1794329999",
+                    "type": 7
+                  },
+                  {
+                    "name": "acl1",
+                    "value": "1794329999",
+                    "type": 7
+                  }
+                ]
+              },
+              "list_view_status_label": {
+                "text": "label_to_ship",
+                "tl": false
+              }
+            },
+            "shipping": {
+              "tracking_info": {
+                "driver_phone": "",
+                "driver_name": "",
+                "ctime": 0,
+                "description": "",
+                "type": 0
+              },
+              "is_multi_parcel": false,
+              "num_parcels": 1,
+              "parcel_no": 1
+            },
+            "info_card": {
+              "order_id": 247936234269244,
+              "checkout_id": 247936234268324,
+              "order_list_cards": [
+                {
+                  "shop_info": {
+                    "shop_id": 1420930217,
+                    "shop_name": "iq93mieasj",
+                    "user_id": 1421631580,
+                    "username": "iq93mieasj",
+                    "portrait": "",
+                    "shop_tag": 0,
+                    "disable_redirection": false,
+                    "hide_contact_seller_button": false
+                  },
+                  "order_id": 247936234269244,
+                  "parcel_cards": [
+                    {
+                      "parcel_no": 1,
+                      "forder_id": "",
+                      "product_info": {
+                        "item_groups": [
+                          {
+                            "items": [
+                              {
+                                "item_id": 58118829064,
+                                "model_id": 298063110600,
+                                "shop_id": 1420930217,
+                                "name": "Jasjus rasa jeruk nipis",
+                                "model_name": "Jeruk",
+                                "name_tr": "",
+                                "model_name_tr": "",
+                                "image": "id-11134201-81ztd-mv45vjixrtoned",
+                                "amount": 4,
+                                "ext_info": {
+                                  "add_on_deal_id": 0,
+                                  "is_add_on_sub_item": false,
+                                  "free_return_day": 0,
+                                  "is_wholesale": false,
+                                  "is_pre_order": false,
+                                  "is_membership_gift": false,
+                                  "is_free_return": false,
+                                  "disable_redirection": false,
+                                  "is_main_item_exist": false,
+                                  "is_refundable_sample": false,
+                                  "is_prescription": false
+                                },
+                                "status": 1,
+                                "item_price": 4000000000,
+                                "order_price": 4000000000,
+                                "snapshot_id": 212709978861
+                              }
+                            ],
+                            "num_items": 1
+                          }
+                        ],
+                        "total_num_items": 1
+                      }
+                    }
+                  ],
+                  "product_info": {
+                    "item_groups": [
+                      {
+                        "items": [
+                          {
+                            "item_id": 58118829064,
+                            "model_id": 298063110600,
+                            "shop_id": 1420930217,
+                            "name": "Jasjus rasa jeruk nipis",
+                            "model_name": "Jeruk",
+                            "name_tr": "",
+                            "model_name_tr": "",
+                            "image": "id-11134201-81ztd-mv45vjixrtoned",
+                            "amount": 4,
+                            "ext_info": {
+                              "add_on_deal_id": 0,
+                              "is_add_on_sub_item": false,
+                              "free_return_day": 0,
+                              "is_wholesale": false,
+                              "is_pre_order": false,
+                              "is_membership_gift": false,
+                              "is_free_return": false,
+                              "disable_redirection": false,
+                              "is_main_item_exist": false,
+                              "is_refundable_sample": false,
+                              "is_prescription": false
+                            },
+                            "status": 1,
+                            "item_price": 1000000000,
+                            "order_price": 1000000000,
+                            "snapshot_id": 212709978861
+                          }
+                        ],
+                        "num_items": 1
+                      }
+                    ],
+                    "total_num_items": 1
+                  }
+                }
+              ],
+              "product_count": 1,
+              "subtotal": 4600000000,
+              "final_total": 4600000000
+            },
+            "primary_buttons": [
+              {
+                "id": 15
+              }
+            ],
+            "coins": {
+              "coin_earn": 0,
+              "coin_basic_earn": 0,
+              "redirect_to_coin_page": false,
+              "title": {
+                "text": "Koin Shopee yang akan didapatkan",
+                "tl": true
+              },
+              "subtitle": {
+                "text": "Setelah pesanan selesai",
+                "tl": true
+              },
+              "popup_msg": {
+                "text": "Kamu akan menerima Koin Shopee setelah pesanan selesai.",
+                "tl": true
+              }
+            },
+            "list_type": 7
+          }
+        },
+        {
+          "order_list_detail": {
+            "status": {
+              "status_label": {
+                "text": "label_preparing_order",
+                "tl": false
+              },
+              "list_view_text": {
+                "text": "order_list_text_to_ship_order_shipbydate",
+                "tl": false,
+                "attributes": [
+                  {
+                    "name": "ship_by_date",
+                    "value": "1794329999",
+                    "type": 7
+                  },
+                  {
+                    "name": "acl1",
+                    "value": "1794329999",
+                    "type": 7
+                  }
+                ]
+              },
+              "list_view_status_label": {
+                "text": "label_to_ship",
+                "tl": false
+              }
+            },
+            "shipping": {
+              "tracking_info": {
+                "driver_phone": "",
+                "driver_name": "",
+                "ctime": 0,
+                "description": "",
+                "type": 0
+              },
+              "is_multi_parcel": false,
+              "num_parcels": 1,
+              "parcel_no": 1
+            },
+            "info_card": {
+              "order_id": 247936134233436,
+              "checkout_id": 247936134231486,
+              "order_list_cards": [
+                {
+                  "shop_info": {
+                    "shop_id": 1420930217,
+                    "shop_name": "iq93mieasj",
+                    "user_id": 1421631580,
+                    "username": "iq93mieasj",
+                    "portrait": "",
+                    "shop_tag": 0,
+                    "disable_redirection": false,
+                    "hide_contact_seller_button": false
+                  },
+                  "order_id": 247936134233436,
+                  "parcel_cards": [
+                    {
+                      "parcel_no": 1,
+                      "forder_id": "",
+                      "product_info": {
+                        "item_groups": [
+                          {
+                            "items": [
+                              {
+                                "item_id": 58118829064,
+                                "model_id": 298063110600,
+                                "shop_id": 1420930217,
+                                "name": "Jasjus rasa jeruk nipis",
+                                "model_name": "Jeruk",
+                                "name_tr": "",
+                                "model_name_tr": "",
+                                "image": "id-11134201-81ztd-mv45vjixrtoned",
+                                "amount": 4,
+                                "ext_info": {
+                                  "add_on_deal_id": 0,
+                                  "is_add_on_sub_item": false,
+                                  "free_return_day": 0,
+                                  "is_wholesale": false,
+                                  "is_pre_order": false,
+                                  "is_membership_gift": false,
+                                  "is_free_return": false,
+                                  "disable_redirection": false,
+                                  "is_main_item_exist": false,
+                                  "is_refundable_sample": false,
+                                  "is_prescription": false
+                                },
+                                "status": 1,
+                                "item_price": 4000000000,
+                                "order_price": 4000000000,
+                                "snapshot_id": 212709978861
+                              }
+                            ],
+                            "num_items": 1
+                          }
+                        ],
+                        "total_num_items": 1
+                      }
+                    }
+                  ],
+                  "product_info": {
+                    "item_groups": [
+                      {
+                        "items": [
+                          {
+                            "item_id": 58118829064,
+                            "model_id": 298063110600,
+                            "shop_id": 1420930217,
+                            "name": "Jasjus rasa jeruk nipis",
+                            "model_name": "Jeruk",
+                            "name_tr": "",
+                            "model_name_tr": "",
+                            "image": "id-11134201-81ztd-mv45vjixrtoned",
+                            "amount": 4,
+                            "ext_info": {
+                              "add_on_deal_id": 0,
+                              "is_add_on_sub_item": false,
+                              "free_return_day": 0,
+                              "is_wholesale": false,
+                              "is_pre_order": false,
+                              "is_membership_gift": false,
+                              "is_free_return": false,
+                              "disable_redirection": false,
+                              "is_main_item_exist": false,
+                              "is_refundable_sample": false,
+                              "is_prescription": false
+                            },
+                            "status": 1,
+                            "item_price": 1000000000,
+                            "order_price": 1000000000,
+                            "snapshot_id": 212709978861
+                          }
+                        ],
+                        "num_items": 1
+                      }
+                    ],
+                    "total_num_items": 1
+                  }
+                }
+              ],
+              "product_count": 1,
+              "subtotal": 4600000000,
+              "final_total": 4600000000
+            },
+            "primary_buttons": [
+              {
+                "id": 15
+              }
+            ],
+            "coins": {
+              "coin_earn": 0,
+              "coin_basic_earn": 0,
+              "redirect_to_coin_page": false,
+              "title": {
+                "text": "Koin Shopee yang akan didapatkan",
+                "tl": true
+              },
+              "subtitle": {
+                "text": "Setelah pesanan selesai",
+                "tl": true
+              },
+              "popup_msg": {
+                "text": "Kamu akan menerima Koin Shopee setelah pesanan selesai.",
+                "tl": true
+              }
+            },
+            "list_type": 7
+          }
+        },
+        {
+          "order_list_detail": {
+            "status": {
+              "status_label": {
+                "text": "label_preparing_order",
+                "tl": false
+              },
+              "list_view_text": {
+                "text": "order_list_text_to_ship_order_shipbydate",
+                "tl": false,
+                "attributes": [
+                  {
+                    "name": "ship_by_date",
+                    "value": "1794329999",
+                    "type": 7
+                  },
+                  {
+                    "name": "acl1",
+                    "value": "1794329999",
+                    "type": 7
+                  }
+                ]
+              },
+              "list_view_status_label": {
+                "text": "label_to_ship",
+                "tl": false
+              }
+            },
+            "shipping": {
+              "tracking_info": {
+                "driver_phone": "",
+                "driver_name": "",
+                "ctime": 0,
+                "description": "",
+                "type": 0
+              },
+              "is_multi_parcel": false,
+              "num_parcels": 1,
+              "parcel_no": 1
+            },
+            "info_card": {
+              "order_id": 247935305253873,
+              "checkout_id": 247935305253492,
+              "order_list_cards": [
+                {
+                  "shop_info": {
+                    "shop_id": 1420930217,
+                    "shop_name": "iq93mieasj",
+                    "user_id": 1421631580,
+                    "username": "iq93mieasj",
+                    "portrait": "",
+                    "shop_tag": 0,
+                    "disable_redirection": false,
+                    "hide_contact_seller_button": false
+                  },
+                  "order_id": 247935305253873,
+                  "parcel_cards": [
+                    {
+                      "parcel_no": 1,
+                      "forder_id": "",
+                      "product_info": {
+                        "item_groups": [
+                          {
+                            "items": [
+                              {
+                                "item_id": 58118829064,
+                                "model_id": 298063110600,
+                                "shop_id": 1420930217,
+                                "name": "Jasjus rasa jeruk nipis",
+                                "model_name": "Jeruk",
+                                "name_tr": "",
+                                "model_name_tr": "",
+                                "image": "id-11134201-81ztd-mv45vjixrtoned",
+                                "amount": 4,
+                                "ext_info": {
+                                  "add_on_deal_id": 0,
+                                  "is_add_on_sub_item": false,
+                                  "free_return_day": 0,
+                                  "is_wholesale": false,
+                                  "is_pre_order": false,
+                                  "is_membership_gift": false,
+                                  "is_free_return": false,
+                                  "disable_redirection": false,
+                                  "is_main_item_exist": false,
+                                  "is_refundable_sample": false,
+                                  "is_prescription": false
+                                },
+                                "status": 1,
+                                "item_price": 4000000000,
+                                "order_price": 4000000000,
+                                "snapshot_id": 212709978861
+                              }
+                            ],
+                            "num_items": 1
+                          }
+                        ],
+                        "total_num_items": 1
+                      }
+                    }
+                  ],
+                  "product_info": {
+                    "item_groups": [
+                      {
+                        "items": [
+                          {
+                            "item_id": 58118829064,
+                            "model_id": 298063110600,
+                            "shop_id": 1420930217,
+                            "name": "Jasjus rasa jeruk nipis",
+                            "model_name": "Jeruk",
+                            "name_tr": "",
+                            "model_name_tr": "",
+                            "image": "id-11134201-81ztd-mv45vjixrtoned",
+                            "amount": 4,
+                            "ext_info": {
+                              "add_on_deal_id": 0,
+                              "is_add_on_sub_item": false,
+                              "free_return_day": 0,
+                              "is_wholesale": false,
+                              "is_pre_order": false,
+                              "is_membership_gift": false,
+                              "is_free_return": false,
+                              "disable_redirection": false,
+                              "is_main_item_exist": false,
+                              "is_refundable_sample": false,
+                              "is_prescription": false
+                            },
+                            "status": 1,
+                            "item_price": 1000000000,
+                            "order_price": 1000000000,
+                            "snapshot_id": 212709978861
+                          }
+                        ],
+                        "num_items": 1
+                      }
+                    ],
+                    "total_num_items": 1
+                  }
+                }
+              ],
+              "product_count": 1,
+              "subtotal": 4600000000,
+              "final_total": 4600000000
+            },
+            "primary_buttons": [
+              {
+                "id": 15
+              }
+            ],
+            "coins": {
+              "coin_earn": 0,
+              "coin_basic_earn": 0,
+              "redirect_to_coin_page": false,
+              "title": {
+                "text": "Koin Shopee yang akan didapatkan",
+                "tl": true
+              },
+              "subtitle": {
+                "text": "Setelah pesanan selesai",
+                "tl": true
+              },
+              "popup_msg": {
+                "text": "Kamu akan menerima Koin Shopee setelah pesanan selesai.",
+                "tl": true
+              }
+            },
+            "list_type": 7
+          }
+        },
+        {
+          "order_list_detail": {
+            "status": {
+              "status_label": {
+                "text": "label_preparing_order",
+                "tl": false
+              },
+              "list_view_text": {
+                "text": "order_list_text_to_ship_order_shipbydate",
+                "tl": false,
+                "attributes": [
+                  {
+                    "name": "ship_by_date",
+                    "value": "1794329999",
+                    "type": 7
+                  },
+                  {
+                    "name": "acl1",
+                    "value": "1794329999",
+                    "type": 7
+                  }
+                ]
+              },
+              "list_view_status_label": {
+                "text": "label_to_ship",
+                "tl": false
+              }
+            },
+            "shipping": {
+              "tracking_info": {
+                "driver_phone": "",
+                "driver_name": "",
+                "ctime": 0,
+                "description": "",
+                "type": 0
+              },
+              "is_multi_parcel": false,
+              "num_parcels": 1,
+              "parcel_no": 1
+            },
+            "info_card": {
+              "order_id": 247935145270780,
+              "checkout_id": 247935145275023,
+              "order_list_cards": [
+                {
+                  "shop_info": {
+                    "shop_id": 1420930217,
+                    "shop_name": "iq93mieasj",
+                    "user_id": 1421631580,
+                    "username": "iq93mieasj",
+                    "portrait": "",
+                    "shop_tag": 0,
+                    "disable_redirection": false,
+                    "hide_contact_seller_button": false
+                  },
+                  "order_id": 247935145270780,
+                  "parcel_cards": [
+                    {
+                      "parcel_no": 1,
+                      "forder_id": "",
+                      "product_info": {
+                        "item_groups": [
+                          {
+                            "items": [
+                              {
+                                "item_id": 58118829064,
+                                "model_id": 298063110602,
+                                "shop_id": 1420930217,
+                                "name": "Jasjus rasa jeruk nipis",
+                                "model_name": "Durian",
+                                "name_tr": "",
+                                "model_name_tr": "",
+                                "image": "id-11134201-81ztd-mv45vjixrtoned",
+                                "amount": 1,
+                                "ext_info": {
+                                  "add_on_deal_id": 0,
+                                  "is_add_on_sub_item": false,
+                                  "free_return_day": 0,
+                                  "is_wholesale": false,
+                                  "is_pre_order": false,
+                                  "is_membership_gift": false,
+                                  "is_free_return": false,
+                                  "disable_redirection": false,
+                                  "is_main_item_exist": false,
+                                  "is_refundable_sample": false,
+                                  "is_prescription": false
+                                },
+                                "status": 1,
+                                "item_price": 3000000000,
+                                "order_price": 3000000000,
+                                "snapshot_id": 212709978861
+                              }
+                            ],
+                            "num_items": 1
+                          }
+                        ],
+                        "total_num_items": 1
+                      }
+                    }
+                  ],
+                  "product_info": {
+                    "item_groups": [
+                      {
+                        "items": [
+                          {
+                            "item_id": 58118829064,
+                            "model_id": 298063110602,
+                            "shop_id": 1420930217,
+                            "name": "Jasjus rasa jeruk nipis",
+                            "model_name": "Durian",
+                            "name_tr": "",
+                            "model_name_tr": "",
+                            "image": "id-11134201-81ztd-mv45vjixrtoned",
+                            "amount": 1,
+                            "ext_info": {
+                              "add_on_deal_id": 0,
+                              "is_add_on_sub_item": false,
+                              "free_return_day": 0,
+                              "is_wholesale": false,
+                              "is_pre_order": false,
+                              "is_membership_gift": false,
+                              "is_free_return": false,
+                              "disable_redirection": false,
+                              "is_main_item_exist": false,
+                              "is_refundable_sample": false,
+                              "is_prescription": false
+                            },
+                            "status": 1,
+                            "item_price": 3000000000,
+                            "order_price": 3000000000,
+                            "snapshot_id": 212709978861
+                          }
+                        ],
+                        "num_items": 1
+                      }
+                    ],
+                    "total_num_items": 1
+                  }
+                }
+              ],
+              "product_count": 1,
+              "subtotal": 3600000000,
+              "final_total": 3600000000
+            },
+            "primary_buttons": [
+              {
+                "id": 15
+              }
+            ],
+            "coins": {
+              "coin_earn": 0,
+              "coin_basic_earn": 0,
+              "redirect_to_coin_page": false,
+              "title": {
+                "text": "Koin Shopee yang akan didapatkan",
+                "tl": true
+              },
+              "subtitle": {
+                "text": "Setelah pesanan selesai",
+                "tl": true
+              },
+              "popup_msg": {
+                "text": "Kamu akan menerima Koin Shopee setelah pesanan selesai.",
+                "tl": true
+              }
+            },
+            "list_type": 7
+          }
+        },
+        {
+          "order_list_detail": {
+            "status": {
+              "status_label": {
+                "text": "label_preparing_order",
+                "tl": false
+              },
+              "list_view_text": {
+                "text": "order_list_text_to_ship_order_shipbydate",
+                "tl": false,
+                "attributes": [
+                  {
+                    "name": "ship_by_date",
+                    "value": "1794329999",
+                    "type": 7
+                  },
+                  {
+                    "name": "acl1",
+                    "value": "1794329999",
+                    "type": 7
+                  }
+                ]
+              },
+              "list_view_status_label": {
+                "text": "label_to_ship",
+                "tl": false
+              }
+            },
+            "shipping": {
+              "tracking_info": {
+                "driver_phone": "",
+                "driver_name": "",
+                "ctime": 0,
+                "description": "",
+                "type": 0
+              },
+              "is_multi_parcel": false,
+              "num_parcels": 1,
+              "parcel_no": 1
+            },
+            "info_card": {
+              "order_id": 247934879227774,
+              "checkout_id": 247934879222654,
+              "order_list_cards": [
+                {
+                  "shop_info": {
+                    "shop_id": 1420930217,
+                    "shop_name": "iq93mieasj",
+                    "user_id": 1421631580,
+                    "username": "iq93mieasj",
+                    "portrait": "",
+                    "shop_tag": 0,
+                    "disable_redirection": false,
+                    "hide_contact_seller_button": false
+                  },
+                  "order_id": 247934879227774,
+                  "parcel_cards": [
+                    {
+                      "parcel_no": 1,
+                      "forder_id": "",
+                      "product_info": {
+                        "item_groups": [
+                          {
+                            "items": [
+                              {
+                                "item_id": 58118829064,
+                                "model_id": 298063110602,
+                                "shop_id": 1420930217,
+                                "name": "Jasjus rasa jeruk nipis",
+                                "model_name": "Durian",
+                                "name_tr": "",
+                                "model_name_tr": "",
+                                "image": "id-11134201-81ztd-mv45vjixrtoned",
+                                "amount": 1,
+                                "ext_info": {
+                                  "add_on_deal_id": 0,
+                                  "is_add_on_sub_item": false,
+                                  "free_return_day": 0,
+                                  "is_wholesale": false,
+                                  "is_pre_order": false,
+                                  "is_membership_gift": false,
+                                  "is_free_return": false,
+                                  "disable_redirection": false,
+                                  "is_main_item_exist": false,
+                                  "is_refundable_sample": false,
+                                  "is_prescription": false
+                                },
+                                "status": 1,
+                                "item_price": 3000000000,
+                                "order_price": 3000000000,
+                                "snapshot_id": 212709978861
+                              }
+                            ],
+                            "num_items": 1
+                          }
+                        ],
+                        "total_num_items": 1
+                      }
+                    }
+                  ],
+                  "product_info": {
+                    "item_groups": [
+                      {
+                        "items": [
+                          {
+                            "item_id": 58118829064,
+                            "model_id": 298063110602,
+                            "shop_id": 1420930217,
+                            "name": "Jasjus rasa jeruk nipis",
+                            "model_name": "Durian",
+                            "name_tr": "",
+                            "model_name_tr": "",
+                            "image": "id-11134201-81ztd-mv45vjixrtoned",
+                            "amount": 1,
+                            "ext_info": {
+                              "add_on_deal_id": 0,
+                              "is_add_on_sub_item": false,
+                              "free_return_day": 0,
+                              "is_wholesale": false,
+                              "is_pre_order": false,
+                              "is_membership_gift": false,
+                              "is_free_return": false,
+                              "disable_redirection": false,
+                              "is_main_item_exist": false,
+                              "is_refundable_sample": false,
+                              "is_prescription": false
+                            },
+                            "status": 1,
+                            "item_price": 3000000000,
+                            "order_price": 3000000000,
+                            "snapshot_id": 212709978861
+                          }
+                        ],
+                        "num_items": 1
+                      }
+                    ],
+                    "total_num_items": 1
+                  }
+                }
+              ],
+              "product_count": 1,
+              "subtotal": 3600000000,
+              "final_total": 3600000000
+            },
+            "primary_buttons": [
+              {
+                "id": 15
+              }
+            ],
+            "coins": {
+              "coin_earn": 0,
+              "coin_basic_earn": 0,
+              "redirect_to_coin_page": false,
+              "title": {
+                "text": "Koin Shopee yang akan didapatkan",
+                "tl": true
+              },
+              "subtitle": {
+                "text": "Setelah pesanan selesai",
+                "tl": true
+              },
+              "popup_msg": {
+                "text": "Kamu akan menerima Koin Shopee setelah pesanan selesai.",
+                "tl": true
+              }
+            },
+            "list_type": 7
+          }
+        },
+        {
+          "order_list_detail": {
+            "status": {
+              "status_label": {
+                "text": "label_preparing_order",
+                "tl": false
+              },
+              "list_view_text": {
+                "text": "order_list_text_to_ship_order_shipbydate",
+                "tl": false,
+                "attributes": [
+                  {
+                    "name": "ship_by_date",
+                    "value": "1794329999",
+                    "type": 7
+                  },
+                  {
+                    "name": "acl1",
+                    "value": "1794329999",
+                    "type": 7
+                  }
+                ]
+              },
+              "list_view_status_label": {
+                "text": "label_to_ship",
+                "tl": false
+              }
+            },
+            "shipping": {
+              "tracking_info": {
+                "driver_phone": "",
+                "driver_name": "",
+                "ctime": 0,
+                "description": "",
+                "type": 0
+              },
+              "is_multi_parcel": false,
+              "num_parcels": 1,
+              "parcel_no": 1
+            },
+            "info_card": {
+              "order_id": 247934777205427,
+              "checkout_id": 247934777209247,
+              "order_list_cards": [
+                {
+                  "shop_info": {
+                    "shop_id": 1420930217,
+                    "shop_name": "iq93mieasj",
+                    "user_id": 1421631580,
+                    "username": "iq93mieasj",
+                    "portrait": "",
+                    "shop_tag": 0,
+                    "disable_redirection": false,
+                    "hide_contact_seller_button": false
+                  },
+                  "order_id": 247934777205427,
+                  "parcel_cards": [
+                    {
+                      "parcel_no": 1,
+                      "forder_id": "",
+                      "product_info": {
+                        "item_groups": [
+                          {
+                            "items": [
+                              {
+                                "item_id": 58118829064,
+                                "model_id": 298063110602,
+                                "shop_id": 1420930217,
+                                "name": "Jasjus rasa jeruk nipis",
+                                "model_name": "Durian",
+                                "name_tr": "",
+                                "model_name_tr": "",
+                                "image": "id-11134201-81ztd-mv45vjixrtoned",
+                                "amount": 1,
+                                "ext_info": {
+                                  "add_on_deal_id": 0,
+                                  "is_add_on_sub_item": false,
+                                  "free_return_day": 0,
+                                  "is_wholesale": false,
+                                  "is_pre_order": false,
+                                  "is_membership_gift": false,
+                                  "is_free_return": false,
+                                  "disable_redirection": false,
+                                  "is_main_item_exist": false,
+                                  "is_refundable_sample": false,
+                                  "is_prescription": false
+                                },
+                                "status": 1,
+                                "item_price": 3000000000,
+                                "order_price": 3000000000,
+                                "snapshot_id": 212709978861
+                              }
+                            ],
+                            "num_items": 1
+                          }
+                        ],
+                        "total_num_items": 1
+                      }
+                    }
+                  ],
+                  "product_info": {
+                    "item_groups": [
+                      {
+                        "items": [
+                          {
+                            "item_id": 58118829064,
+                            "model_id": 298063110602,
+                            "shop_id": 1420930217,
+                            "name": "Jasjus rasa jeruk nipis",
+                            "model_name": "Durian",
+                            "name_tr": "",
+                            "model_name_tr": "",
+                            "image": "id-11134201-81ztd-mv45vjixrtoned",
+                            "amount": 1,
+                            "ext_info": {
+                              "add_on_deal_id": 0,
+                              "is_add_on_sub_item": false,
+                              "free_return_day": 0,
+                              "is_wholesale": false,
+                              "is_pre_order": false,
+                              "is_membership_gift": false,
+                              "is_free_return": false,
+                              "disable_redirection": false,
+                              "is_main_item_exist": false,
+                              "is_refundable_sample": false,
+                              "is_prescription": false
+                            },
+                            "status": 1,
+                            "item_price": 3000000000,
+                            "order_price": 3000000000,
+                            "snapshot_id": 212709978861
+                          }
+                        ],
+                        "num_items": 1
+                      }
+                    ],
+                    "total_num_items": 1
+                  }
+                }
+              ],
+              "product_count": 1,
+              "subtotal": 3600000000,
+              "final_total": 3600000000
+            },
+            "primary_buttons": [
+              {
+                "id": 15
+              }
+            ],
+            "coins": {
+              "coin_earn": 0,
+              "coin_basic_earn": 0,
+              "redirect_to_coin_page": false,
+              "title": {
+                "text": "Koin Shopee yang akan didapatkan",
+                "tl": true
+              },
+              "subtitle": {
+                "text": "Setelah pesanan selesai",
+                "tl": true
+              },
+              "popup_msg": {
+                "text": "Kamu akan menerima Koin Shopee setelah pesanan selesai.",
+                "tl": true
+              }
+            },
+            "list_type": 7
+          }
+        },
+        {
+          "order_list_detail": {
+            "status": {
+              "status_label": {
+                "text": "label_preparing_order",
+                "tl": false
+              },
+              "list_view_text": {
+                "text": "order_list_text_to_ship_order_shipbydate",
+                "tl": false,
+                "attributes": [
+                  {
+                    "name": "ship_by_date",
+                    "value": "1794329999",
+                    "type": 7
+                  },
+                  {
+                    "name": "acl1",
+                    "value": "1794329999",
+                    "type": 7
+                  }
+                ]
+              },
+              "list_view_status_label": {
+                "text": "label_to_ship",
+                "tl": false
+              }
+            },
+            "shipping": {
+              "tracking_info": {
+                "driver_phone": "",
+                "driver_name": "",
+                "ctime": 0,
+                "description": "",
+                "type": 0
+              },
+              "is_multi_parcel": false,
+              "num_parcels": 1,
+              "parcel_no": 1
+            },
+            "info_card": {
+              "order_id": 247934667241413,
+              "checkout_id": 247934667245072,
+              "order_list_cards": [
+                {
+                  "shop_info": {
+                    "shop_id": 1420930217,
+                    "shop_name": "iq93mieasj",
+                    "user_id": 1421631580,
+                    "username": "iq93mieasj",
+                    "portrait": "",
+                    "shop_tag": 0,
+                    "disable_redirection": false,
+                    "hide_contact_seller_button": false
+                  },
+                  "order_id": 247934667241413,
+                  "parcel_cards": [
+                    {
+                      "parcel_no": 1,
+                      "forder_id": "",
+                      "product_info": {
+                        "item_groups": [
+                          {
+                            "items": [
+                              {
+                                "item_id": 58118829064,
+                                "model_id": 298063110602,
+                                "shop_id": 1420930217,
+                                "name": "Jasjus rasa jeruk nipis",
+                                "model_name": "Durian",
+                                "name_tr": "",
+                                "model_name_tr": "",
+                                "image": "id-11134201-81ztd-mv45vjixrtoned",
+                                "amount": 1,
+                                "ext_info": {
+                                  "add_on_deal_id": 0,
+                                  "is_add_on_sub_item": false,
+                                  "free_return_day": 0,
+                                  "is_wholesale": false,
+                                  "is_pre_order": false,
+                                  "is_membership_gift": false,
+                                  "is_free_return": false,
+                                  "disable_redirection": false,
+                                  "is_main_item_exist": false,
+                                  "is_refundable_sample": false,
+                                  "is_prescription": false
+                                },
+                                "status": 1,
+                                "item_price": 3000000000,
+                                "order_price": 3000000000,
+                                "snapshot_id": 212709978861
+                              }
+                            ],
+                            "num_items": 1
+                          }
+                        ],
+                        "total_num_items": 1
+                      }
+                    }
+                  ],
+                  "product_info": {
+                    "item_groups": [
+                      {
+                        "items": [
+                          {
+                            "item_id": 58118829064,
+                            "model_id": 298063110602,
+                            "shop_id": 1420930217,
+                            "name": "Jasjus rasa jeruk nipis",
+                            "model_name": "Durian",
+                            "name_tr": "",
+                            "model_name_tr": "",
+                            "image": "id-11134201-81ztd-mv45vjixrtoned",
+                            "amount": 1,
+                            "ext_info": {
+                              "add_on_deal_id": 0,
+                              "is_add_on_sub_item": false,
+                              "free_return_day": 0,
+                              "is_wholesale": false,
+                              "is_pre_order": false,
+                              "is_membership_gift": false,
+                              "is_free_return": false,
+                              "disable_redirection": false,
+                              "is_main_item_exist": false,
+                              "is_refundable_sample": false,
+                              "is_prescription": false
+                            },
+                            "status": 1,
+                            "item_price": 3000000000,
+                            "order_price": 3000000000,
+                            "snapshot_id": 212709978861
+                          }
+                        ],
+                        "num_items": 1
+                      }
+                    ],
+                    "total_num_items": 1
+                  }
+                }
+              ],
+              "product_count": 1,
+              "subtotal": 3600000000,
+              "final_total": 3600000000
+            },
+            "primary_buttons": [
+              {
+                "id": 15
+              }
+            ],
+            "coins": {
+              "coin_earn": 0,
+              "coin_basic_earn": 0,
+              "redirect_to_coin_page": false,
+              "title": {
+                "text": "Koin Shopee yang akan didapatkan",
+                "tl": true
+              },
+              "subtitle": {
+                "text": "Setelah pesanan selesai",
+                "tl": true
+              },
+              "popup_msg": {
+                "text": "Kamu akan menerima Koin Shopee setelah pesanan selesai.",
+                "tl": true
+              }
+            },
+            "list_type": 7
+          }
+        },
+        {
+          "order_list_detail": {
+            "status": {
+              "status_label": {
+                "text": "label_preparing_order",
+                "tl": false
+              },
+              "list_view_text": {
+                "text": "order_list_text_to_ship_order_shipbydate",
+                "tl": false,
+                "attributes": [
+                  {
+                    "name": "ship_by_date",
+                    "value": "1794329999",
+                    "type": 7
+                  },
+                  {
+                    "name": "acl1",
+                    "value": "1794329999",
+                    "type": 7
+                  }
+                ]
+              },
+              "list_view_status_label": {
+                "text": "label_to_ship",
+                "tl": false
+              }
+            },
+            "shipping": {
+              "tracking_info": {
+                "driver_phone": "",
+                "driver_name": "",
+                "ctime": 0,
+                "description": "",
+                "type": 0
+              },
+              "is_multi_parcel": false,
+              "num_parcels": 1,
+              "parcel_no": 1
+            },
+            "info_card": {
+              "order_id": 247934572235814,
+              "checkout_id": 247934572237129,
+              "order_list_cards": [
+                {
+                  "shop_info": {
+                    "shop_id": 1420930217,
+                    "shop_name": "iq93mieasj",
+                    "user_id": 1421631580,
+                    "username": "iq93mieasj",
+                    "portrait": "",
+                    "shop_tag": 0,
+                    "disable_redirection": false,
+                    "hide_contact_seller_button": false
+                  },
+                  "order_id": 247934572235814,
+                  "parcel_cards": [
+                    {
+                      "parcel_no": 1,
+                      "forder_id": "",
+                      "product_info": {
+                        "item_groups": [
+                          {
+                            "items": [
+                              {
+                                "item_id": 58118829064,
+                                "model_id": 298063110602,
+                                "shop_id": 1420930217,
+                                "name": "Jasjus rasa jeruk nipis",
+                                "model_name": "Durian",
+                                "name_tr": "",
+                                "model_name_tr": "",
+                                "image": "id-11134201-81ztd-mv45vjixrtoned",
+                                "amount": 1,
+                                "ext_info": {
+                                  "add_on_deal_id": 0,
+                                  "is_add_on_sub_item": false,
+                                  "free_return_day": 0,
+                                  "is_wholesale": false,
+                                  "is_pre_order": false,
+                                  "is_membership_gift": false,
+                                  "is_free_return": false,
+                                  "disable_redirection": false,
+                                  "is_main_item_exist": false,
+                                  "is_refundable_sample": false,
+                                  "is_prescription": false
+                                },
+                                "status": 1,
+                                "item_price": 3000000000,
+                                "order_price": 3000000000,
+                                "snapshot_id": 212709978861
+                              }
+                            ],
+                            "num_items": 1
+                          }
+                        ],
+                        "total_num_items": 1
+                      }
+                    }
+                  ],
+                  "product_info": {
+                    "item_groups": [
+                      {
+                        "items": [
+                          {
+                            "item_id": 58118829064,
+                            "model_id": 298063110602,
+                            "shop_id": 1420930217,
+                            "name": "Jasjus rasa jeruk nipis",
+                            "model_name": "Durian",
+                            "name_tr": "",
+                            "model_name_tr": "",
+                            "image": "id-11134201-81ztd-mv45vjixrtoned",
+                            "amount": 1,
+                            "ext_info": {
+                              "add_on_deal_id": 0,
+                              "is_add_on_sub_item": false,
+                              "free_return_day": 0,
+                              "is_wholesale": false,
+                              "is_pre_order": false,
+                              "is_membership_gift": false,
+                              "is_free_return": false,
+                              "disable_redirection": false,
+                              "is_main_item_exist": false,
+                              "is_refundable_sample": false,
+                              "is_prescription": false
+                            },
+                            "status": 1,
+                            "item_price": 3000000000,
+                            "order_price": 3000000000,
+                            "snapshot_id": 212709978861
+                          }
+                        ],
+                        "num_items": 1
+                      }
+                    ],
+                    "total_num_items": 1
+                  }
+                }
+              ],
+              "product_count": 1,
+              "subtotal": 3600000000,
+              "final_total": 3600000000
+            },
+            "primary_buttons": [
+              {
+                "id": 15
+              }
+            ],
+            "coins": {
+              "coin_earn": 0,
+              "coin_basic_earn": 0,
+              "redirect_to_coin_page": false,
+              "title": {
+                "text": "Koin Shopee yang akan didapatkan",
+                "tl": true
+              },
+              "subtitle": {
+                "text": "Setelah pesanan selesai",
+                "tl": true
+              },
+              "popup_msg": {
+                "text": "Kamu akan menerima Koin Shopee setelah pesanan selesai.",
+                "tl": true
+              }
+            },
+            "list_type": 7
+          }
+        },
+        {
+          "order_list_detail": {
+            "status": {
+              "status_label": {
+                "text": "label_order_cancelled",
+                "tl": false
+              },
+              "list_view_text": {
+                "text": "order_list_text_cancelled_by_buyer",
+                "tl": false
+              },
+              "list_view_status_label": {
+                "text": "label_cancelled",
+                "tl": false
+              }
+            },
+            "info_card": {
+              "order_id": 247934327247420,
+              "checkout_id": 247934327246981,
+              "order_list_cards": [
+                {
+                  "shop_info": {
+                    "shop_id": 1420930217,
+                    "shop_name": "iq93mieasj",
+                    "user_id": 1421631580,
+                    "username": "iq93mieasj",
+                    "portrait": "",
+                    "shop_tag": 0,
+                    "disable_redirection": false,
+                    "hide_contact_seller_button": false
+                  },
+                  "order_id": 247934327247420,
+                  "parcel_cards": [
+                    {
+                      "parcel_no": 1,
+                      "forder_id": "",
+                      "product_info": {
+                        "item_groups": [
+                          {
+                            "items": [
+                              {
+                                "item_id": 58118829064,
+                                "model_id": 298063110600,
+                                "shop_id": 1420930217,
+                                "name": "Jasjus rasa jeruk nipis",
+                                "model_name": "Jeruk",
+                                "name_tr": "",
+                                "model_name_tr": "",
+                                "image": "id-11134201-81ztd-mv45vjixrtoned",
+                                "amount": 4,
+                                "ext_info": {
+                                  "add_on_deal_id": 0,
+                                  "is_add_on_sub_item": false,
+                                  "free_return_day": 0,
+                                  "is_wholesale": false,
+                                  "is_pre_order": false,
+                                  "is_membership_gift": false,
+                                  "is_free_return": false,
+                                  "disable_redirection": false,
+                                  "is_main_item_exist": false,
+                                  "is_refundable_sample": false,
+                                  "is_prescription": false
+                                },
+                                "status": 1,
+                                "item_price": 4000000000,
+                                "order_price": 4000000000,
+                                "snapshot_id": 212709978861
+                              }
+                            ],
+                            "num_items": 1
+                          }
+                        ],
+                        "total_num_items": 1
+                      }
+                    }
+                  ],
+                  "product_info": {
+                    "item_groups": [
+                      {
+                        "items": [
+                          {
+                            "item_id": 58118829064,
+                            "model_id": 298063110600,
+                            "shop_id": 1420930217,
+                            "name": "Jasjus rasa jeruk nipis",
+                            "model_name": "Jeruk",
+                            "name_tr": "",
+                            "model_name_tr": "",
+                            "image": "id-11134201-81ztd-mv45vjixrtoned",
+                            "amount": 4,
+                            "ext_info": {
+                              "add_on_deal_id": 0,
+                              "is_add_on_sub_item": false,
+                              "free_return_day": 0,
+                              "is_wholesale": false,
+                              "is_pre_order": false,
+                              "is_membership_gift": false,
+                              "is_free_return": false,
+                              "disable_redirection": false,
+                              "is_main_item_exist": false,
+                              "is_refundable_sample": false,
+                              "is_prescription": false
+                            },
+                            "status": 1,
+                            "item_price": 1000000000,
+                            "order_price": 1000000000,
+                            "snapshot_id": 212709978861
+                          }
+                        ],
+                        "num_items": 1
+                      }
+                    ],
+                    "total_num_items": 1
+                  }
+                }
+              ],
+              "product_count": 1,
+              "subtotal": 4600000000,
+              "final_total": 4600000000
+            },
+            "primary_buttons": [
+              {
+                "id": 24
+              },
+              {
+                "id": 30
+              }
+            ],
+            "coins": {
+              "coin_earn": 0,
+              "coin_basic_earn": 0,
+              "redirect_to_coin_page": false,
+              "title": {
+                "text": "Koin Shopee yang akan didapatkan",
+                "tl": true
+              },
+              "subtitle": {
+                "text": "Setelah pesanan selesai",
+                "tl": true
+              },
+              "popup_msg": {
+                "text": "Kamu akan menerima Koin Shopee setelah pesanan selesai.",
+                "tl": true
+              }
+            },
+            "list_type": 4,
+            "is_new_cancellation_flow_enabled": false
+          }
+        }
+      ],
+      "next_offset": 15,
+      "translation_status": 0
+    }
+  }
+}

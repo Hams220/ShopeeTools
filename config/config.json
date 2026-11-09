@@ -1,0 +1,15 @@
+{
+  "telegram_config": {
+    "API_ID": "",
+    "API_HASH": ""
+  },
+  "CheckoutConfig": {
+    "cookie": "csrftoken=fa309018a8270584f3ee3cdc0b4c751b; SPC_CLIENTID=sLxcyxtTzxojmJy9nrqxzegywkphwtyy; SPC_U=16536677658; SPC_F=815d8aa505028340_unknown; SPC_R_T_ID=7gmA9WRobyi3JMo4fczszEmBgSh1x+neMB+RfvAn0p78YBpPiEXpZb3+keOk+zGkjhzKOBqz6pFBtPmz9q9JOP0v3plyqLqgTEsdpbsO1IFQE2yaMEuIyJDxsbxsmz2vlUis7xEoloLyDfkBzh5uzuHR2QlD0sJMc4Z/NLATpFk=; SPC_R_T_IV=UnVlVEYwaGhjdzJCWmZRTQ==; SPC_T_ID=7gmA9WRobyi3JMo4fczszEmBgSh1x+neMB+RfvAn0p78YBpPiEXpZb3+keOk+zGkjhzKOBqz6pFBtPmz9q9JOP0v3plyqLqgTEsdpbsO1IFQE2yaMEuIyJDxsbxsmz2vlUis7xEoloLyDfkBzh5uzuHR2QlD0sJMc4Z/NLATpFk=; SPC_T_IV=UnVlVEYwaGhjdzJCWmZRTQ==; SPC_ST=7uBeIRcBFq0tVgt/ELIqIlh1xzj13DRg2UYjGyNiyRcs7QPHhHzP5QYONaiv6XjjptCPvm+F9mytcM7WQ8d7L96iD0Lfc0ePDBJuOjCOwSJqLmO6+YzCfdlXpcIU98KlGASOzm6umoSWta9T14/EgGrL9zqHQFUNZsHPCHhUMYKpWwNcaqlnvdXMt3uAGoGZNEnpAqF16q3eSe5iOIC0Ww==.ALh/F0mYIXpgjoj6DmMUFE0OdeAEDuoT/yV+/oT5u2Jb; SPC_SI=YavEagAAAAA1NXROZDA5R1zZiAEAAAAAY3VpVTlOa1Y=; SPC_SEC_SI=v1-MUpUZXh5Y2hhREFZZ291VPlAN9yBU9QXyAnipaVt1t8ThDGzbzY7ZKJyfSQ2RexNHRYKPO4/eCD1rvUy+Gn6P8yuTArpqWn+KlrT/lWe994=; REC_T_ID=d58148e5-d980-11f1-9364-4a963df3b8cc",
+    "url_product": "https://shopee.co.id/product/1420930217/58118829064/",
+    "payment_method": "QRIS"
+  },
+  "dealsConfig": {
+    "url_deals_25k": "https://id.shp.ee/4ztyZuDN",
+    "url_deals_50k": "https://id.shp.ee/SeQPx21r"
+  }
+}
